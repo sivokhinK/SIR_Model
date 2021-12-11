@@ -5,7 +5,7 @@ ROI = 2       # Radius Of Infection
 RECOVERY = 5  # days needed to recover
 
 # populate array of people
-people = [person(0, 0) for _ in range(N)]
+people = [person() for _ in range(N)]
 people[0].Infected = True
 
 while True:

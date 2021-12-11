@@ -2,11 +2,11 @@ from random import randint
 from math import sqrt
 
 class person:
-    def __init__(self, x, y):
+    def __init__(self):
         self.x = randint(1, 100)
         self.y = randint(1, 100)
 
-    Susceptable = True
+    Susceptible = True
     Infected = False
     Recovered = False
 
@@ -15,7 +15,7 @@ class person:
     # check if person gets infected
     def is_infected(self, others, ROI):
         for i in range(len(others)):
-            if self.Susceptable == True:
+            if self.Susceptible:
                 distance = sqrt((self.y - others[i].y)**2 + (self.x - others[i].x)**2)
                 if distance <= ROI:
                     if randint(1, 6) == 1:
@@ -23,7 +23,7 @@ class person:
 
     def is_recovered(self, recovery):
         if self.daysInfected == recovery:
-            self.Susceptable = False
+            self.Susceptible = False
             self.Recovered = True
 
     def change_pos(self):
